@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @SpringBootApplication
 @RestController
 public class DemoApplication {
@@ -16,7 +18,7 @@ public class DemoApplication {
 
     @RequestMapping(method = RequestMethod.GET,
         path = "/")
-    public String index() {
-        return "Hello World!";
+    public String index(HttpServletRequest request) {
+        return request.getLocalAddr();
     }
 }
